@@ -149,6 +149,7 @@ test("rescue command absorbs continue semantics", () => {
   assert.match(agent, /Default to `task --background` whenever the user did NOT explicitly pass `--wait`/i);
   assert.match(agent, /never run substantial work foreground from here/i);
   assert.match(agent, /Use exactly one `Bash` call/i);
+  assert.match(agent, /pass `timeout: 600000`.*the 10-minute Bash maximum/i);
   assert.match(agent, /Do not inspect the repository, read files, grep, monitor progress, poll status, fetch results, cancel jobs, summarize output, or do any follow-up work of your own/i);
   assert.match(agent, /Do not call `review`, `adversarial-review`, `status`, `result`, or `cancel`/i);
   assert.match(agent, /Leave `--effort` unset unless the user explicitly requests a specific reasoning effort/i);
@@ -167,6 +168,7 @@ test("rescue command absorbs continue semantics", () => {
   assert.match(runtimeSkill, /Leave `--effort` unset unless the user explicitly requests a specific effort/i);
   assert.match(runtimeSkill, /Leave model unset by default/i);
   assert.match(runtimeSkill, /Map `spark` to `--model gpt-5\.3-codex-spark`/i);
+  assert.match(runtimeSkill, /Always pass `timeout: 600000`/i);
   assert.match(runtimeSkill, /If the forwarded request includes `--background`, pass that execution mode through by invoking `task --background`/i);
   assert.match(runtimeSkill, /strip the flag token only from the natural-language prompt text/i);
   assert.match(runtimeSkill, /If the forwarded request includes `--wait`, invoke foreground `task`/i);

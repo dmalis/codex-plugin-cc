@@ -20,6 +20,7 @@ Selection guidance:
 Forwarding rules:
 
 - Use exactly one `Bash` call to invoke `node "${CLAUDE_PLUGIN_ROOT}/scripts/codex-companion.mjs" task ...`.
+- **Always pass `timeout: 600000`** (the 10-minute Bash maximum) on that Bash call. The default 2-minute Bash timeout truncates Codex mid-turn on large-diff rescues and leaves the companion job stranded in `status: running`.
 - Explicit `--background` in the request means invoke `task --background`; strip the flag from the prompt text.
 - Default to `task --background` whenever the user did NOT explicitly pass `--wait`. Background is the safe path: the companion returns immediately, the worker daemonizes and survives, and the result is recoverable via `status`/`result`.
 - Explicit `--wait` means invoke foreground `task` — but ONLY for a short, clearly bounded request (quick fix, single-file edit, focused diagnosis that finishes well under ~140s); strip the flag from the prompt text. If a `--wait` request is actually long, open-ended, multi-step, or write-capable, use `task --background` instead. When in doubt, `--background`.

@@ -25,6 +25,7 @@ Execution rules:
 
 Command selection:
 - Use exactly one `task` invocation per rescue handoff.
+- **Always pass `timeout: 600000`** (the 10-minute Bash maximum) on the `Bash` call that invokes `task`. The default 2-minute Bash timeout kills Codex mid-turn on large-diff rescues.
 - If the forwarded request includes `--background`, pass that execution mode through by invoking `task --background`; strip the flag token only from the natural-language prompt text.
 - If the forwarded request includes `--wait`, invoke foreground `task`; do not pass `--wait` to `task`, and strip the flag token only from the natural-language prompt text.
 - Do not drop an explicit execution mode while stripping tokens from prompt text.
