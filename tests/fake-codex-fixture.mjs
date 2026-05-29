@@ -381,6 +381,7 @@ rl.on("line", (line) => {
 	          turnId,
 	          model: message.params.model ?? null,
 	          effort: message.params.effort ?? null,
+	          input: message.params.input ?? [],
 	          prompt
 	        };
 	        saveState(state);
