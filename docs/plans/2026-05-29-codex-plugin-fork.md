@@ -1,6 +1,6 @@
 # Codex Plugin CC Fork — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> Work through this plan task by task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Fork openai/codex-plugin-cc and cherry-pick 6–7 community PRs that fix GPT-5.5 support and rescue agent reliability on macOS.
 
@@ -60,10 +60,10 @@ Expected: Fork created at `<your-username>/codex-plugin-cc` on GitHub.
 
 - [ ] **Step 2: Clone the fork locally**
 
-The working directory `/Users/damjan/development/projects/codex-plugin-cc` already exists but is empty (just our spec/plan docs). Clone into a temp location and move contents:
+A folder `codex-plugin-cc` already exists in the parent folder, holding only our spec and plan docs. Clone into a temp location and move contents:
 
 ```bash
-cd /Users/damjan/development/projects
+cd <parent folder of codex-plugin-cc>
 rm -rf codex-plugin-cc-tmp
 git clone git@github.com:$(gh api user --jq .login)/codex-plugin-cc.git codex-plugin-cc-tmp
 ```
@@ -494,7 +494,7 @@ claude plugin remove codex
 - [ ] **Step 3: Install the fork**
 
 ```bash
-claude plugin install /Users/damjan/development/projects/codex-plugin-cc
+claude plugin install <path to your codex-plugin-cc clone>
 ```
 
 If local path install isn't supported, install from GitHub:

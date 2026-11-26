@@ -545,7 +545,7 @@ test("codex-rescue hook ignores other subagent types", () => {
     hook_event_name: "PostToolUse",
     tool_name: "Agent",
     tool_input: {
-      subagent_type: "superpowers:code-reviewer"
+      subagent_type: "other-plugin:code-reviewer"
     },
     tool_response: {
       status: "completed",

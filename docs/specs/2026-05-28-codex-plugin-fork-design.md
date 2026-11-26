@@ -92,7 +92,7 @@ Fork `openai/codex-plugin-cc` (v1.0.4) and cherry-pick community PRs that fix GP
 ## Implementation Plan
 
 1. Fork the repo on GitHub
-2. Clone to `/Users/damjan/development/projects/codex-plugin-cc`
+2. Clone the fork locally
 3. Create `patched` branch from `main`
 4. Cherry-pick PRs in revised order: #255, #300, #343, #297, #346, #325, #350
 5. Group broker patches (#300 then #343) — resolve conflicts in `broker-lifecycle.mjs`
